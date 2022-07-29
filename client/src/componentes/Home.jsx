@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { Link }  from 'react-router-dom';
-import getCharacter from '../redux/actions'
+import {getCharacter }from '../redux/actions'
 import Card from './Card';
-
-
 
 
 function Home() {
@@ -17,13 +15,14 @@ function Home() {
 
     // console.log("hola todos", allCharacters)
 
-
+  return (
+    <div>
+        <br/>
+        <Link to = {'/characters'}>
+          <button>Crear Personaje👨👧</button>
+        </Link>
     
 
-
-  return (
-
-    <div>
       <h1 >Character</h1>
       {
         allCharacters ? 
@@ -36,6 +35,7 @@ function Home() {
               species = {e.species}
               origin = {e.origin}
               key= {e.id}
+              onClose={() => alert(e.name)}
             />
 
           ) 
